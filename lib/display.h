@@ -30,7 +30,7 @@ inline void shiftUp() {
 	// update onscreen[]
 	for (unsigned char i = 0; i < numLINES - 1; i++)
 		onscreen[i] = onscreen[i+1];
-	onscreen[numLINES-1] = ""; // this is the last line so it becomes blank
+	clear(numLINES - 1);
 
 	// update the screen
 	for (unsigned char i = 0; i < numLINES; i++)
