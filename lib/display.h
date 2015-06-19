@@ -50,3 +50,21 @@ void printf(const string text) {
 	nxtDisplayTextLine(line, text);
 	onscreen[line] = text;
 }
+
+void printf(const bool condition) {
+	// because the string literals cannot be passed, we have to declare these
+	const string trueString = "true", falseString = "false";
+	printf(condition ? trueString : falseString);
+}
+
+void printf(const int number) {
+	printf("" + number); // coerse to a string
+}
+
+void printf(const char letter) {
+	printf("" + letter); // coerse to a string
+}
+
+void printf(const float number) {
+	printf("" + number); // TODO: remove trailing zeros when outputting 
+}
