@@ -68,3 +68,13 @@ void printf(const char letter) {
 void printf(const float number) {
 	printf("" + number); // TODO: remove trailing zeros when outputting
 }
+
+void clear(const unsigned char line) {
+	nxtDisplayTextLine(line, "");
+	onscreen[line] = "";
+}
+
+void clear() {
+	for (unsigned char line = 0; i < numLINES; i++)
+		clear(line);
+}
