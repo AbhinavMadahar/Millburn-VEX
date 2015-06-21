@@ -14,7 +14,7 @@ Rules of the Game:
 		25 points: Each Robot that is Low Elevated
 		50 points: Each Robot that is High Elevated
 
-		10 points: Alliance with the most points at the end of Autonomous
+		10 points: Alliance with the most points at the end of autonomous
 ******************************************************************************/
 
 #ifndef included__syntax
