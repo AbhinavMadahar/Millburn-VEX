@@ -74,7 +74,7 @@ If the keywords are already defined in a program, it will not redefine them.
 	#endif
 
 	#ifndef bit
-		  #define bit /**/
+		#define bit /**/
 	#endif
 
 	#ifndef byte
@@ -82,7 +82,11 @@ If the keywords are already defined in a program, it will not redefine them.
 	#endif
 
 	#ifndef dB // decibel
-		  #define dB /**/
+		#define dB /**/
+	#endif
+
+	#ifndef kg
+		#define kg /**/
 	#endif
 
 // code flow
