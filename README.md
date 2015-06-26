@@ -15,7 +15,53 @@ We plan on having meetings at least twice a week, although during some months (l
 
 > ~ John Lacy (paraphrased)
 
-That said, you're all probably programmers if you're reading this. Thusly, you need to know a few best practices, such as not using `Thusly` in actual speech. You may be 16 but it's not 1916.
+That said, you're all probably programmers if you're reading this. Thusly, you need to know a few things, such as not using `Thusly` in actual speech. You may be 16 but it's not 1916.
+
+## Things Coders Should Know
+These are incomplete so far.
+
+### C in general
+- enumerated types
+- structs
+- pointers
+	- `*`
+	- `&`
+	- pointer arithmetic
+	- arrays
+- differences between variable types
+	- `bool`
+	- `char`
+	- `int`
+		- `short`
+		- `long`
+	- `float`
+	- `string`
+- differences between variable modifiers
+	- `signed` and `unsigned`
+	- `const`
+	- `static`
+- differences between function modifiers
+	- `inline` which might not be supported anymore
+- some Markdown
+	- linking
+	- headers using the `#` style
+	- images
+	- strong and em
+	- sorted and unsorted lists
+	- quotes
+	- inline code
+- preprocessor directives
+	- `#include`
+	- `#if` and `#else` and `#endif`
+	- `#define`
+		- `#undef`
+		- `#defined()`
+		- macros
+	- `#pragma`
+- some git (using Sourcetree as a GUI)
+	- commit
+	- branches
+	- pushing
 
 ## Best Practices for Software Dev
 These are all principles that have been forged by the blood, sweat, and tears of the ancient developers, who forged the base systems we all take for granted. These men and women had to make entire operating systems from scratch, so they learned quickly what the best ways were to avoid having the whole thing turn into a mess. Let's talk about that.
