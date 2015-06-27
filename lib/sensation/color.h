@@ -6,6 +6,9 @@ TODO: figure out the right #pragma to use
 ******************************************************************************/
 
 typedef enum Color {
-	black,
-	white
+	grey,
+	yellow,
+	orange,
+	red,
+	blue
 };

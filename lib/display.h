@@ -73,17 +73,20 @@ void printf(const Color color) {
 	string colorString; // can only pass variables to printf(), not literals
 
 	switch (color) {
-		case black:
-			colorString = "black";
-			break;
-		case white:
-			colorString = "white";
+		case grey:
+			colorString = "grey";
 			break;
 		case yellow:
 			colorString = "yellow";
 			break;
 		case orange:
 			colorString = "orange";
+			break;
+		case red:
+			colorString = "red";
+			break;
+		case blue:
+			colorString = "blue";
 			break;
 		default:
 			colorString = "unknown color";
