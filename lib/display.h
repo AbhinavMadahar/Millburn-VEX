@@ -69,6 +69,29 @@ void printf(const float number) {
 	printf("" + number); // TODO: remove trailing zeros when outputting
 }
 
+void printf(const Color color) {
+	string colorString; // can only pass variables to printf(), not literals
+
+	switch (color) {
+		case black:
+			colorString = "black";
+			break;
+		case white:
+			colorString = "white";
+			break;
+		case yellow:
+			colorString = "yellow";
+			break;
+		case orange:
+			colorString = "orange";
+			break;
+		default:
+			colorString = "unknown color";
+	}
+
+	printf(colorString);
+}
+
 void clear(const unsigned char line) {
 	nxtDisplayTextLine(line, "");
 	onscreen[line] = "";
