@@ -5,7 +5,21 @@ Millburn High School VEX Team
 
 We are a robotics team in Millburn High School. This is the repository for the 2015 to 2016 team, consisting of the following people:
 
-`// TODO: add people and their jobs`
+* Code Team
+	* David Yaffe, Captain
+	* Elliot Sotnick, Captain
+	* [Abhinav Madahar](https://github.com/AbhinavMadahar)
+	* Darren Ting
+	* [Jeremy Cheng](https://github.com/ChengJeremy)
+	* [Matt Weintraub](https://github.com/matthewweintraub)
+	* [Adam Claman](https://github.com/Adam7557)
+	* Isaac Kamber
+	* Curtis Li
+* Build Team
+	* Johnny Lacy, Captain
+	* Ian Brown
+	* Josh Broitman
+	* Will Chen
 
 Yes, there are a lot of people, which is why anyone can leave if they want to, and you can be kicked off if you repeatedly don't show up. That means you should show up and do something. If you can be replaced by a house plant, then there's something wrong. Unless that house plant is a cactus. They're unbeatable.
 
