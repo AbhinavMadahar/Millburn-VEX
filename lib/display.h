@@ -5,6 +5,7 @@ This file manages time-related activities such as:
 It will treat the output like a terminal, where new text will make the old text
 move up by 1 line.
 *******************************************************************************/
+#define included__display true
 
 #ifndef included__syntax
 	#include "syntax.h"

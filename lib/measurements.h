@@ -2,6 +2,7 @@
 These are some of the robot's measurements, as well as measurements of the
 field.
 ******************************************************************************/
+#define included__measurements true
 
 #ifndef included__syntax
     #include "syntax.h"

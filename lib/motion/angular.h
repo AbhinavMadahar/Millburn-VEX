@@ -1,3 +1,9 @@
+#define included__angular true
+
+#ifndef included__motors
+	#include "motors.h"
+#endif
+
 // turning will be implemented when the robot design is decided
 void turn(const signed char deg); // turns clockwise
 

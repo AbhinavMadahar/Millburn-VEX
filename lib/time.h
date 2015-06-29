@@ -5,8 +5,6 @@ This file manages time-related activities such as:
 Unless specified otherwise, all time units are in seconds
 *******************************************************************************/
 
-// force redefinition just in case included__time was marked as false
-#undef included__time
 #define included__time true
 
 #ifndef included__syntax

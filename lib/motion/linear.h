@@ -1,6 +1,11 @@
 /******************************************************************************
 This file manages linear motion, like moving a certain speed forward.
 ******************************************************************************/
+#define included__linear true
+
+#ifndef included__motors
+	#include "motors.h"
+#endif
 
 #ifndef included__syntax
 	#include "../syntax.h"
