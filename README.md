@@ -14,7 +14,7 @@ We are a robotics team in Millburn High School. This is the repository for the 2
 	* [Matt Weintraub](https://github.com/matthewweintraub)
 	* [Adam Claman](https://github.com/Adam7557)
 	* Isaac Kamber
-	* Curtis Li
+	* [Curtis Li](https://github.com/curtis1227)
 * Build Team
 	* Johnny Lacy, Captain
 	* Ian Brown
