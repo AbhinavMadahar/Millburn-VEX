@@ -14,5 +14,5 @@ void right() {
 	turn(90 deg);
 }
 void spin() {
-	turn(180 deg);
+	turn(360 deg);
 }
