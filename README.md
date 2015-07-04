@@ -1,9 +1,6 @@
 Millburn High School VEX Team
 =============================
-
-![Logo](https://cloud.githubusercontent.com/assets/8312336/8241980/58fd2a8a-15da-11e5-890e-1431c96b34d3.jpg)
-
-We are a robotics team in Millburn High School. This is the repository for the 2015 to 2016 team, consisting of the following people:
+This is the repository for the 2015 to 2016 team, consisting of the following people:
 
 * Code Team
 	* David Yaffe, Captain
