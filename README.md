@@ -1,9 +1,6 @@
 Millburn High School VEX Team
 =============================
-
-![Logo](https://cloud.githubusercontent.com/assets/8312336/8241980/58fd2a8a-15da-11e5-890e-1431c96b34d3.jpg)
-
-We are a robotics team in Millburn High School. This is the repository for the 2015 to 2016 team, consisting of the following people:
+This is the repository for the 2015 to 2016 team, consisting of the following people:
 
 * Code Team
 	* David Yaffe, Captain
@@ -14,7 +11,7 @@ We are a robotics team in Millburn High School. This is the repository for the 2
 	* [Matt Weintraub](https://github.com/matthewweintraub)
 	* [Adam Claman](https://github.com/Adam7557)
 	* Isaac Kamber
-	* Curtis Li
+	* [Curtis Li](https://github.com/curtis1227)
 * Build Team
 	* Johnny Lacy, Captain
 	* Ian Brown
