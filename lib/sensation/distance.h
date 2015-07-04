@@ -8,16 +8,11 @@ obviously meaningful than SONAR()
 Before using it, please make sure the correct #pragma is used
 TODO: figure out the right #pragma to use to make a senseSound
 ******************************************************************************/
-
+#ifndef included__distance
 #define included__distance true
 
-#ifndef included__syntax
-	#include "../syntax.h"
-#endif
-
-#ifndef included__math
-	#include "../math.h"
-#endif
+#include "../syntax.h"
+#include "../math.h"
 
 unsigned byte distanceCorrected () {
 	return SensorValue[senseDistance];
@@ -34,3 +29,5 @@ unsigned byte distance() {
 
 	return shortest;
 }
+
+#endif

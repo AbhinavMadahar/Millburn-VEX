@@ -1,15 +1,11 @@
 /******************************************************************************
 This file manages linear motion, like moving a certain speed forward.
 ******************************************************************************/
+#ifndef included__linear
 #define included__linear true
 
-#ifndef included__motors
-	#include "motors.h"
-#endif
-
-#ifndef included__syntax
-	#include "../syntax.h"
-#endif
+#include "motors.h"
+#include "../syntax.h"
 
 // for now, these are just forward declarations
 // when the robot design is decided, they will be implemented
@@ -19,3 +15,5 @@ void forward(const signed float cm);
 void freeze() {
 	go(0);
 }
+
+#endif

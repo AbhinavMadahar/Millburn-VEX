@@ -9,6 +9,7 @@ This file improves upon the built-in syntax to make it more readible by:
 If the keywords are already defined in a program, it will not redefine them.
 *******************************************************************************/
 
+#ifndef included__syntax
 #define included__syntax true
 
 // Boolean logic operators
@@ -95,3 +96,5 @@ If the keywords are already defined in a program, it will not redefine them.
 	#ifndef unless(x)
 		#define unless(x) if(!(x))
 	#endif
+
+#endif

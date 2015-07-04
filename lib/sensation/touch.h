@@ -7,10 +7,10 @@ called `pressed()`
 Before using it, please make sure the correct #pragma is used
 TODO: figure out the right #pragma to use to make a senseTouch
 ******************************************************************************/
+#ifndef included__touch
+#define included__touch true
 
-#ifndef included__syntax
-	#include "../syntax.h"
-#endif
+#include "syntax.h"
 
 #define touched pressed
 
@@ -28,3 +28,5 @@ bool pressed() {
 
 	return false;
 }
+
+#endif

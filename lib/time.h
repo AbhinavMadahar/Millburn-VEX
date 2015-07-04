@@ -4,12 +4,10 @@ This file manages time-related activities such as:
 
 Unless specified otherwise, all time units are in seconds
 *******************************************************************************/
-
+#ifndef included__time
 #define included__time true
 
-#ifndef included__syntax
-	#include "syntax.h"
-#endif
+#include "syntax.h"
 
 // marked as inline to avoid making a needlessly expensive function call
 inline void pause(const float unsigned duration sec) {
@@ -22,3 +20,5 @@ inline void sleep() {
 	while (true)
 		pause(60 sec);
 }
+
+#endif

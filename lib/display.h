@@ -5,11 +5,10 @@ This file manages time-related activities such as:
 It will treat the output like a terminal, where new text will make the old text
 move up by 1 line.
 *******************************************************************************/
+#ifndef included__display
 #define included__display true
 
-#ifndef included__syntax
-	#include "syntax.h"
-#endif
+#include "syntax.h"
 
 #define numLINES 8 // XXX: can this be converted to a const variable?
 string onscreen[numLINES];
@@ -81,3 +80,5 @@ void clear() {
 	for (unsigned char line = 0; i < numLINES; i++)
 		clear(line);
 }
+
+#endif

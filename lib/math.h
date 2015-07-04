@@ -3,11 +3,10 @@ This file manages math-related activities such as:
 	* finding the least or greatest number
 	* swapping the values of 2 variables
 *******************************************************************************/
+#ifndef included__math
 #define included__math true
 
-#ifndef included__syntax
-	#include "syntax.h"
-#endif
+#include "syntax.h"
 
 // to swap the values of variables a and b, use swap(&a, &b)
 void swap(int *a, int *b) {
@@ -39,3 +38,5 @@ int greatest(int a, int b, int c) {
 int greatest(int a, int b, int c, int d) {
 	return greatest(greatest(a, b, c), d);
 }
+
+#endif

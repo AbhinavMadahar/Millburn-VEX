@@ -17,9 +17,7 @@ Rules of the Game:
 		10 points: Alliance with the most points at the end of autonomous
 ******************************************************************************/
 
-#ifndef included__syntax
-	#include "../lib/syntax.h"
-#endif
+#include "../lib/syntax.h"
 
 // main() will control when to stop this task, so just keep going here
 task autonomous() {
@@ -32,5 +30,5 @@ task manual() {
 }
 
 task main() {
-	
+
 }

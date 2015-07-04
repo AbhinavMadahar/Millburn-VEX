@@ -2,11 +2,10 @@
 These are some of the robot's measurements, as well as measurements of the
 field.
 ******************************************************************************/
+#ifndef included__measurements
 #define included__measurements true
 
-#ifndef included__syntax
-    #include "syntax.h"
-#endif
+#include "syntax.h"
 
 // TODO: add the measurements for the robot's height
 const float robotHeight cm;
@@ -25,3 +24,5 @@ const float goalHypotenuse = sqrt(2 * goalSideLength * goalSideLength) cm;
 const float ballRadius cm;
 const float ballDiameter = 2 * ballRadius cm;
 const float ballVolume = 2 * PI * ballRadius * ballRadius cm;
+
+#endif
