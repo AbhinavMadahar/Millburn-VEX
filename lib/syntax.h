@@ -72,14 +72,6 @@ If the keywords are already defined in a program, it will not redefine them.
 		#define Hz /**/
 	#endif
 
-	#ifndef bit
-		#define bit /**/
-	#endif
-
-	#ifndef byte
-		#define byte /**/
-	#endif
-
 	#ifndef dB // decibel
 		#define dB /**/
 	#endif
