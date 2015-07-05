@@ -29,14 +29,6 @@ If the keywords are already defined in a program, it will not redefine them.
 		#define not !
 	#endif
 
-	#ifndef nor
-		#define nor &&! // define nor as: and not
-	#endif
-
-	#ifndef neither
-		#define neither !
-	#endif
-
 // quantity definitions
 	#ifndef percent
 		#define percent /100.0
