@@ -29,15 +29,6 @@ If the keywords are already defined in a program, it will not redefine them.
 		#define not !
 	#endif
 
-// quantity definitions
-	#ifndef percent
-		#define percent /100.0
-	#endif
-
-	#ifndef dozen
-		#define dozen *12
-	#endif
-
 // units of measurements are ignored to specify units without changing execution
 
 	#ifndef cm
