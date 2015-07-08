@@ -23,7 +23,7 @@ short emptyLine() {
 	return -1; // if none of the lines were blank
 }
 
-void printf(const string); // forward declare for shiftUp
+void printf(string); // forward declare for shiftUp
 
 // moves the lines up by 1 line
 inline void shiftUp() {
@@ -67,6 +67,10 @@ void printf(const char letter) {
 
 void printf(const float number) {
 	printf("" + number); // TODO: remove trailing zeros when outputting
+}
+
+void printf(const byte number) {
+	printf((int) number);
 }
 
 // TODO: printf(Color)
