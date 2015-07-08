@@ -4,7 +4,7 @@
 #include "motors.h"
 
 // turning will be implemented when the robot design is decided
-void turn(const signed char deg); // turns clockwise
+void turn(const signed int deg); // turns clockwise
 
 void left() {
 	turn(-90 deg);
