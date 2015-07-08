@@ -9,8 +9,8 @@ This file manages linear motion, like moving a certain speed forward.
 
 // for now, these are just forward declarations
 // when the robot design is decided, they will be implemented
-void go(const signed int cm per sec);
-void forward(const signed float cm);
+void go(int cm per sec);
+void forward(float cm);
 
 void freeze() {
 	go(0);
