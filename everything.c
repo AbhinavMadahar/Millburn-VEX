@@ -16,7 +16,11 @@ Testing status: none
 
 #include "lib/sensation/color.h"
 #include "lib/sensation/distance.h"
-#include "lib/sensation/sound.h"
 #include "lib/sensation/touch.h"
+
+// these files have a good chance of not being used
+// ignore them if there isn't enough time to debug them
+#include "lib/sensation/sound.h"
+#include "lib/motion/claw.h"
 
 task main() {} // RobotC requires a main task
