@@ -19,15 +19,8 @@ Rules of the Game:
 
 #include "../lib/syntax.h"
 
-// main() will control when to stop this task, so just keep going here
-task autonomous() {
-	// TODO: make an autonomous task that works
-}
-
-// main() will control when to stop this task, so just keep going here
-task manual() {
-	// TODO: make a manual task that works
-}
+#include "autonomous.h"
+#include "manual.h"
 
 task main() {
 
