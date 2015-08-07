@@ -81,7 +81,7 @@ void clear(const unsigned char line) {
 }
 
 void clear() {
-	for (unsigned char line = 0; i < numLINES; i++)
+	for (unsigned char line = 0; line < numLINES; line++)
 		clear(line);
 }
 
