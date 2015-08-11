@@ -10,7 +10,7 @@ TODO: figure out the right #pragma to use to make a senseTouch
 #ifndef included__touch
 #define included__touch true
 
-#include "syntax.h"
+#include "../syntax.h"
 
 #define touched pressed
 
@@ -23,7 +23,7 @@ bool pressed() {
 	unsigned byte nRepeats = 5;
 
 	repeat (nRepeats)
-		if pressedCorrected()
+		if (pressedCorrected())
 			return true;
 
 	return false;

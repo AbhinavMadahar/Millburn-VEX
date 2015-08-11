@@ -65,7 +65,7 @@ If the keywords are already defined in a program, it will not redefine them.
 
 // code flow
 	#ifndef repeat(x) // repeats a segment of code up to 2 ** 16 = 65536 times
-		#define repeat(x) for(unsigned short uegeuo=0; uegeuo<x; uegeuo++)
+		#define repeat(x) for(unsigned int uegeuo=0; uegeuo<x; uegeuo++)
 	#endif
 
 	#ifndef unless(x)

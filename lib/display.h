@@ -15,7 +15,7 @@ string onscreen[numLINES];
 
 // tries to find the highest blank line
 // if none of them are blank, it returns -1
-short emptyLine() {
+int emptyLine() {
 	for (unsigned char i = 0; i < numLINES; i++)
 		if (onscreen[i] == 0 or onscreen[i] == "")
 			return i;
@@ -38,7 +38,7 @@ inline void shiftUp() {
 }
 
 void printf(const string text) {
-	short line;
+	int line;
 
 	if (emptyLine() == -1) { // if the screen is full
 		shiftUp();
@@ -81,7 +81,7 @@ void clear(const unsigned char line) {
 }
 
 void clear() {
-	for (unsigned char line = 0; i < numLINES; i++)
+	for (unsigned char line = 0; line < numLINES; line++)
 		clear(line);
 }
 

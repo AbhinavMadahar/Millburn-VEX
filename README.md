@@ -1,29 +1,15 @@
 Millburn High School VEX Team
 =============================
-This is the repository for the 2015 to 2016 team, consisting of the following people:
+This is the repository for the 2015 to 2016 team, which is taking part in the **Nothing but Net** challenge.
 
-* Code Team
-	* David Yaffe, Captain
-	* Elliot Sotnick, Captain
-	* [Abhinav Madahar](https://github.com/AbhinavMadahar)
-	* Darren Ting
-	* [Jeremy Cheng](https://github.com/ChengJeremy)
-	* [Matt Weintraub](https://github.com/matthewweintraub)
-	* [Adam Claman](https://github.com/Adam7557)
-	* Isaac Kamber
-	* [Curtis Li](https://github.com/curtis1227)
-* Build Team
-	* Johnny Lacy, Captain
-	* Ian Brown
-	* Josh Broitman
-	* Will Chen
+If you are not on the team, feel free to browse around. It's open source for a reason.
 
-Yes, there are a lot of people, which is why anyone can leave if they want to, and you can be kicked off if you repeatedly don't show up. That means you should show up and do something. If you can be replaced by a house plant, then there's something wrong. Unless that house plant is a cactus. They're unbeatable.
+If you _are_ on the team, please make sure to join the Facebook group and keep updated on it.
+Also, I personally recommend that you [unwatch](https://help.github.com/articles/unwatching-repositories/) the repository to avoid getting too many emails.
 
-We plan on having meetings at least twice a week, although during some months (like September) we will have to go every weekday and Saturday because that's when the busy times are. The times are going to be from 3:30ish to 5:30ish, but athletes have to come from 5:30ish to 7:30ish. That means that you do not have an excuse. If you are sick or something, then stay updated. Software developers on the team can just read the git log to stay up-to-date, but you really should also make sure that you know the ideas we are making. As for hardware developers, you will just have to stay in contact somehow.
+# Style Guide
+I made this repository from blood and tears. Every single character was examined and thought-out. This is as close to perfection as I can get without having the RobotC compiler to check for me.
 
-> The VEX team may seem like a B team, playing second-fiddle to the FIRST Robotics Team. That's because it is. However, it doesn't have to be- you all can make an amazing robot if you work together and try. Also, don't play the fiddle. It's not the 1600s.
+To maintain the quality of the repository, please follow the stylistic choices I have already chosen in the repository.
 
-> ~ John Lacy (paraphrased)
-
-That said, you're all probably programmers if you're reading this. Thusly, you need to know a few things, such as not using `Thusly` in actual speech. You may be 16 but it's not 1916. Look in the [wiki](https://github.com/AbhinavMadahar/Millburn-VEX/wiki) for them.
+As a special note: use tabs for indentation, not spaces. This is so that we can easily change the indentation level based on our personal preference. I prefer 4 spaces but sometimes I like 8, and using tabs makes changing simple. Also, do not use tabs for alignment, use spaces. Remember to avoid alignment as well
