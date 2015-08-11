@@ -45,7 +45,7 @@ void setLauncherSpeed(unsigned int speed) {
 }
 
 // pass -5 to slow down by 5 percent, 15 to increase by 15 percent, etc.
-void launcherSpeedChangeBy(int difference) {
+void changeLauncherSpeedBy(int difference) {
 	int current = motor[*leftLauncherMotor]; // left and right are the same
 	setLauncherSpeed(current + difference);
 }
