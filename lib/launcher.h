@@ -40,8 +40,8 @@ void setLauncherSpeed(unsigned int speed) {
 
 	speed = least(speed, 100);
 
-	moveMotor(*leftLauncherMotor, speed);
-	moveMotor(*rightLauncherMotor, speed);
+	motor[*leftLauncherMotor] = speed;
+	motor[*rightLauncherMotor] = speed;
 }
 
 // pass -5 to slow down by 5 percent, 15 to increase by 15 percent, etc.
