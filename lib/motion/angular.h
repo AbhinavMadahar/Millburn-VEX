@@ -3,17 +3,17 @@
 
 #include "motors.h"
 
-// turning will be implemented when the robot design is decided
-void turn(int deg); // turns clockwise
+// starts spinning and does not stop by itself
+// spins clockwise if speed is positive, anticlockwise if negative
+void spin(int speed) {
+	goLeft(speed);
+	goRight(-speed);
+}
 
-void left() {
-	turn(-90 deg);
-}
-void right() {
-	turn(90 deg);
-}
-void spin() {
-	turn(360 deg);
+void spin(int speed, unsigned int duration) {
+	spin(speed);
+	wait1Msec(duration);
+	spin(0);
 }
 
 #endif
