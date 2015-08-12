@@ -10,17 +10,23 @@ This file manages linear motion, like moving a certain speed forward.
 // moves the entire robot forwards or backwards
 go(int speed) {
 	speed = abs(speed) > 100 ? sgn(speed) * 100 : speed;
-	// TODO: make it move forwards/backwards
+
+	setRightMotors(speed);
+	setLeftMotors(speed);
 }
 
 goLeft(int speed) {
 	speed = abs(speed) > 100 ? sgn(speed) * 100 : speed;
-	// TODO: make it move left
+
+	setRightMotors(speed);
+	setLeftMotors(0);
 }
 
 goRight(int speed) {
 	speed = abs(speed) > 100 ? sgn(speed) * 100 : speed;
-	// TODO: make it move right
+
+	setRightMotors(0);
+	setLeftMotors(speed);
 }
 
 go(int speed, unsigned int duration) {

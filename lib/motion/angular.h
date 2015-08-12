@@ -6,8 +6,8 @@
 // starts spinning and does not stop by itself
 // spins clockwise if speed is positive, anticlockwise if negative
 void spin(int speed) {
-	goLeft(speed);
-	goRight(-speed);
+	setLeftMotors(speed);
+	setRightMotors(-speed);
 }
 
 void spin(int speed, unsigned int duration) {
