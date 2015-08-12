@@ -11,7 +11,11 @@ each portion can have a its own file, allowing for better organization.
 ******************************************************************************/
 
 #include "../lib/syntax.h"
+#include "../lib/launcher.h"
+#include "../lib/elevator.h"
 #include "../lib/motion/angular.h"
+#include "../lib/motion/linear.h"
+#include "../lib/motion/motors.h"
 #include "../lib/sensation/color.h"
 #include "../lib/sensation/distance.h"
 
@@ -85,5 +89,15 @@ task autonomous() {
 		sleep();
 	// everything after this is run if the robot found the goal
 	
-	// TODO: launch the balls towards the goal
+	unsigned int normalSpeed = 30; // percentage to move forwards
+	unsigned int tooClose = 5; // avoid getting this close to the goal in cm 
+	
+	go(normalSpeed);
+	setElevatorSpeed(100);
+	StartTask(launcherAutoSpeed);
+	
+	while (distance() > tooClose);
+	
+	go(0);
+	StopTask(launcherAutoSpeed);
 }
