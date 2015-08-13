@@ -40,8 +40,13 @@ void setLauncherSpeed(unsigned int speed) {
 
 	speed = least(speed, 100);
 
-	motor[*leftLauncherMotor] = speed;
-	motor[*rightLauncherMotor] = speed;
+	// the motors spin in the opposite direction as each other
+	// that way, they both spin outwards to push the ball out
+	// the problem is that I don't yet know which one should go (anti)clockwise
+	// TODO: figure out what direction it should use
+	const int direction = 1; // positive or negative
+	motor[*leftLauncherMotor] = direction * speed;
+	motor[*rightLauncherMotor] = -1 * direction * speed;
 }
 
 // pass -5 to slow down by 5 percent, 15 to increase by 15 percent, etc.
