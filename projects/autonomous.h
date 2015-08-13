@@ -23,6 +23,7 @@ const int nudgeSpeed = 10; // percentage
 const int nudgeDuration = 50; // milliseconds
 
 Color allianceColor = color(baseColorSensor);
+Color otherAllianceColor = alliance == red ? blue : red;
 
 // just turn left a tiny bit
 void nudgeLeft() {
@@ -76,6 +77,16 @@ bool findGoal() {
 	}
 	
 	return false;
+}
+
+// <SG7> requires that the robot avoid the other alliance's Loading Zone
+task avoidOtherLoadingZone() {
+	int checkPeriod = 500; // milliseconds between checks
+	while (true) {
+		if (color(baseColorSensor) == otherAllianceColor)
+			StopTask(autonomous); // TODO: escape the Loading Zone instead
+		wait1Msec(checkPeriod);
+	}
 }
 
 // main() will control when to stop this task, so just keep going here
