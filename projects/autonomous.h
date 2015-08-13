@@ -22,7 +22,7 @@ each portion can have a its own file, allowing for better organization.
 const int nudgeSpeed = 10; // percentage
 const int nudgeDuration = 50; // milliseconds
 
-Color baseColor = color(baseColorSensor);
+Color allianceColor = color(baseColorSensor);
 
 // just turn left a tiny bit
 void nudgeLeft() {
@@ -35,7 +35,7 @@ void nudgeRight() {
 
 void isFacingGoal() {
 	Color colorSeen = color();
-	return colorSeen == red or colorSeen == blue;
+	return colorSeen == allianceColor;
 }
 
 // returns true if a goal is found and false if not
