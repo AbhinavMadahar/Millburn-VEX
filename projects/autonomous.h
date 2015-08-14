@@ -40,7 +40,7 @@ void isFacingGoal() {
 }
 
 // returns true if a goal is found and false if not
-bool findGoal() {
+void findGoal() {
 	// the robot will search to the right for a goal, then the left
 	const unsigned int totalDuration = 10000; // milliseconds
 	
@@ -60,7 +60,7 @@ bool findGoal() {
 	while (checks < checkLimit) {
 		nudgeRight();
 		if (isFacingGoal())
-			return true;
+			return;
 		checks++;
 	}
 	
@@ -72,11 +72,9 @@ bool findGoal() {
 	while (checks < checkLimit) {
 		nudgeLeft();
 		if (isFacingGoal())
-			return true;
+			return;
 		checks++;
 	}
-	
-	return false;
 }
 
 // <SG7> requires that the robot avoid the other alliance's Loading Zone
@@ -92,7 +90,8 @@ task avoidOtherLoadingZone() {
 // main() will control when to stop this task, so just keep going here
 task autonomous() {
 	// try to find the goal and make sure one is found
-	bool shouldBother = findGoal();
+	findGoal();
+	bool shouldBother = isFacingGoal();
 	
 	// avoid wasting time if you should just quit
 	// after the 15 seconds are over, the main task will kill autonomous
