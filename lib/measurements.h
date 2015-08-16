@@ -8,21 +8,21 @@ field.
 #include "syntax.h"
 
 // TODO: add the measurements for the robot's height
-const float robotHeight cm;
-const float robotLength cm;
-const float robotWidth cm;
+const float robotHeight;
+const float robotLength;
+const float robotWidth;
 const float robotMass kg;
 
 // the field is a square, so the side lengths are all the same
-const float fieldLength = 365.76 cm; // 12 feet
-const float fieldHeight cm; // height of the walls
+const float fieldLength = 365.76; // 12 feet
+const float fieldHeight; // height of the walls
 
-const float goalHeight cm;
-const float goalSideLength cm;
-const float goalHypotenuse = sqrt(2 * goalSideLength * goalSideLength) cm;
+const float goalHeight;
+const float goalSideLength;
+const float goalHypotenuse = sqrt(2 * goalSideLength * goalSideLength);
 
-const float ballRadius cm;
-const float ballDiameter = 2 * ballRadius cm;
-const float ballVolume = 2 * PI * ballRadius * ballRadius cm;
+const float ballRadius;
+const float ballDiameter = 2 * ballRadius;
+const float ballVolume = 2 * PI * ballRadius * ballRadius;
 
 #endif

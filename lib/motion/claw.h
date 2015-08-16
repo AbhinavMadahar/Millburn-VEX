@@ -24,7 +24,7 @@ Possible design for the claw:
 #define included__claw true
 
 // for the proximal servo
-void raise(int deg);
+void raise(int);
 
 // for the distal servo
 void grab();

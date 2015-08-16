@@ -15,7 +15,7 @@ const TMotors *backLeftMotor;
 // that is why motorToMove is declared as a TMotors, not an int
 // speed is a percentage from -100 to 100
 // duration is recorded in milliseconds
-void moveMotor(TMotors motorToMove, int speed，unsigned int duration) {
+void moveMotor(TMotors motorToMove, int speed， unsigned int duration) {
 	// make sure speed is in the range of [-100, 100]
 	speed = abs(speed) > 100 ? sgn(speed) * 100 : speed;
 

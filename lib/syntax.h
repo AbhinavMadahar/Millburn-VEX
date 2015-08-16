@@ -1,8 +1,6 @@
 /*******************************************************************************
 This file improves upon the built-in syntax to make it more readible by:
 	* allowing for the use of keywords like 'and' in place of '&&'
-	* ignoring units like 'cm' so they can be used in files without
-	  affecting performance or behavior
 	* converting quantities like 'percent' to a pure number
 	* making simpler syntax like repeat(...) to make intentions clear
 
@@ -27,40 +25,6 @@ If the keywords are already defined in a program, it will not redefine them.
 
 	#ifndef not
 		#define not !
-	#endif
-
-// units of measurements are ignored to specify units without changing execution
-
-	#ifndef cm
-		#define cm /**/
-	#endif
-
-	#ifndef sec
-		#define sec /**/
-	#endif
-
-	#ifndef msec // millisecond
-		#define msec /**/
-	#endif
-
-	#ifndef per // so that we can say 'cm per sec'
-		#define per /**/
-	#endif
-
-	#ifndef deg
-		#define deg /**/
-	#endif
-
-	#ifndef Hz
-		#define Hz /**/
-	#endif
-
-	#ifndef dB // decibel
-		#define dB /**/
-	#endif
-
-	#ifndef kg
-		#define kg /**/
 	#endif
 
 // code flow

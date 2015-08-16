@@ -10,7 +10,7 @@ Unless specified otherwise, all time units are in seconds
 #include "syntax.h"
 
 // marked as inline to avoid making a needlessly expensive function call
-inline void pause(float duration sec) { // duration will be converted to positive
+inline void pause(float duration) { // duration will be converted to positive
 	duration = abs(duration);
 	wait1Msec(1000 * duration); // convert to milliseconds
 }
@@ -19,7 +19,7 @@ inline void pause(float duration sec) { // duration will be converted to positiv
 inline void sleep() {
 	// it is more efficient to just wait for as long as possible between checks
 	while (true)
-		pause(60 sec);
+		pause(60);
 }
 
 #endif
