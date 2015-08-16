@@ -23,7 +23,7 @@ const int nudgeSpeed = 10; // percentage
 const int nudgeDuration = 50; // milliseconds
 
 Color allianceColor = color(baseColorSensor);
-Color otherAllianceColor = alliance == red ? blue : red;
+Color otherAllianceColor = allianceColor == red ? blue : red;
 
 // just turn left a tiny bit
 void nudgeLeft() {
