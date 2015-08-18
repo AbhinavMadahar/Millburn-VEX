@@ -4,7 +4,6 @@ Do not use for: actually executing
 Testing status: none
 ******************************************************************************/
 
-#include "lib/display.h"
 #include "lib/math.h"
 #include "lib/measurements.h"
 #include "lib/syntax.h"

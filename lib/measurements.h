@@ -11,7 +11,7 @@ field.
 const float robotHeight;
 const float robotLength;
 const float robotWidth;
-const float robotMass kg;
+const float robotMass;
 
 // the field is a square, so the side lengths are all the same
 const float fieldLength = 365.76; // 12 feet

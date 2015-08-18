@@ -23,8 +23,6 @@ int emptyLine() {
 	return -1; // if none of the lines were blank
 }
 
-void printf(string); // forward declare for shiftUp
-
 // moves the lines up by 1 line
 inline void shiftUp() {
 	// update onscreen[]

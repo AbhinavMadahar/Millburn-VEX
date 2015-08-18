@@ -20,12 +20,12 @@ typedef enum Color {
 Color toColor(int reading); // TODO: find the color ranges and implement this
 
 // XXX: do not use this outside this file- use color()
-unsigned byte colorCorrected(TSensors sensorToUse) {
+unsigned byte colorCorrected(tSensors sensorToUse) {
 	return SensorValue[sensorToUse];
 }
 
 // returns the average color to avoid a misreading
-Color color(TSensors sensorToUse) {
+Color color(tSensors sensorToUse) {
 	const unsigned byte nRepeats = 5; // may not work well past 256 repeats
 	unsigned int total = 0;
 	repeat (nRepeats)
