@@ -15,12 +15,15 @@ To maintain the quality of the repository, please follow the stylistic choices I
 As a special note: use tabs for indentation, not spaces. This is so that we can easily change the indentation level based on our personal preference. I prefer 4 spaces but sometimes I like 8, and using tabs makes changing simple. Also, do not use tabs for alignment, use spaces. Remember to avoid alignment as well
 
 # RobotC
-API:  http://help.robotc.net/WebHelpVEX/index.htm#Resources/topics/Welcome.htm%3FTocPath%3D_____1 
+[API](http://help.robotc.net/WebHelpVEX/index.htm#Resources/topics/Welcome.htm%3FTocPath%3D_____1)
 
-Creating a new Robotics File: 
-  1. File > New > Competition Template
-  2. That should get you set up with the basic functions
-  3. Your "Text Functions" should match the ones shown in the API. 
+Creating a new Robotics File:
 
-To get more toolbars: 
-http://help.robotc.net/WebHelpVEX/index.htm#Resources/topics/ROBOTC_Interface/Overview.htm%3FTocPath%3DROBOTC%2520Interface%7C_____1 
+1. File > New > Competition Template
+
+2. That should get you set up with the basic functions
+
+3. Your "Text Functions" should match the ones shown in the API
+
+[To get more toolbars]
+(http://help.robotc.net/WebHelpVEX/index.htm#Resources/topics/ROBOTC_Interface/Overview.htm%3FTocPath%3DROBOTC%2520Interface%7C_____1)
