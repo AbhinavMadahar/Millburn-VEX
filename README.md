@@ -21,3 +21,6 @@ Creating a new Robotics File:
   1. File > New > Competition Template
   2. That should get you set up with the basic functions
   3. Your "Text Functions" should match the ones shown in the API. 
+
+To get more toolbars: 
+http://help.robotc.net/WebHelpVEX/index.htm#Resources/topics/ROBOTC_Interface/Overview.htm%3FTocPath%3DROBOTC%2520Interface%7C_____1 
