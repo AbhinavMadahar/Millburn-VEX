@@ -27,3 +27,7 @@ Creating a new Robotics File:
 
 [To get more toolbars]
 (http://help.robotc.net/WebHelpVEX/index.htm#Resources/topics/ROBOTC_Interface/Overview.htm%3FTocPath%3DROBOTC%2520Interface%7C_____1)
+
+# New Branch
+CTemplate - polished draft of competition template and some sensor and function workouts and tests
+Check it out, and post tests under functions/Sensors (for sensors) and post functions under functions/functions :D
