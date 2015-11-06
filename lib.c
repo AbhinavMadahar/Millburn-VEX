@@ -2,6 +2,7 @@
 // it assumes that the main.c file already has the motor config done in #params
 
 const int defaultSpeedSpeed = 80;
+const int blockLength = 61; // centimeters
 
 bool isAlmost(int value, int constant) {
 	if (constant == 0 && value != 0) {
@@ -54,10 +55,10 @@ void freeze() {
 }
 
 // finds the distance by taking the average of a bunch of different measurements
-int distance() {
+int distance(tSensors sensor = senseDistanceBack) {
 	const int totalChecks = 5;
 	int total = 0;
 	for (int i; i < totalChecks; i++)
-		total += SensorValue[senseDistance];
+		total += SensorValue[sensor];
 	return total / totalChecks;
 }

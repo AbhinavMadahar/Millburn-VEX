@@ -8,6 +8,18 @@
 // then, the setUpGyro() function will set it up
 #define gyroPort in8
 
+// the field is divided into 6x6 blocks, each 2 feet by 2 feet
+// this function moves the robot forwards by the given number of blocks
+// entering a negative number of blocks makes it move backwards
+void moveForwardsByBlocks(int blocks) {
+	const int direction = sgn(blocks);
+	const int speed = 65;
+	const int startingDistance = distance(senseDistanceBack);
+	blocks = abs(blocks);
+	wait1Msec(1000);
+	freeze();
+}
+
 void setUpGyro() {
 	// the gyro sensor only needs to be set up once, and it takes a while to do it
 	// thus, we want to avoid setting it up 2+ times because we have limited time
@@ -30,10 +42,6 @@ void setUpGyro() {
 	wait1Msec(waitDurations[1]);
 
 	alreadySetUp = true;
-}
-
-bool isFacingWall() {
-	return distance() < 20;
 }
 
 // the gyro sensor can register postive and negative values
@@ -87,20 +95,10 @@ void faceGoal(int spinDirection = 1) {
 		spin(spinDirection * spinSpeed);
 	}
 
-	if (!isFacingWall())
-		return;
-	else {
-		while(!isAlmost(getGyroDegrees(), 0)) {
-			spin(-spinDirection * spinSpeed);
-		}
-		faceGoal(-spinDirection); // try the other way
-	}
-
 	freeze();
 }
 
 // this task does not manage time because the main task will do it
 task autonomous() {
-	faceGoal();
-	setShooterSpeed(127);
+	moveForwardsByBlocks(1);
 }
