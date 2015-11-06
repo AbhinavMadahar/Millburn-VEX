@@ -3,8 +3,9 @@
 
 const int defaultSpeedSpeed = 80;
 const int blockLength = 61; // centimeters
+const float topSpeed = (3 * blockLength) / 2000.0; // robot top speed in cm/ms
 
-bool isAlmost(int value, int constant) {
+bool isAlmost(int value, int constant, const float minimumAccuracy = 95.0) {
 	if (constant == 0 && value != 0) {
 		int aux = constant;
 		constant = value;
@@ -12,7 +13,6 @@ bool isAlmost(int value, int constant) {
 	} else if (constant == 0 && value == 0) {
 		return true;
 	} else {
-		const float minimumAccuracy = 95.0;
 		return abs((value - constant) / constant) <= (1 - minimumAccuracy / 100);
 	}
 }
@@ -52,9 +52,40 @@ void setWheelSpeed(int speed) {
 	setRightWheelSpeed(speed);
 }
 
+// convert from the raw speed (like 127) to centimeters per millisecond (cm/ms)
+float rawSpeedToCMMS(int raw) {
+	// right now it is a very rough conversion process
+	// I saw the robot move at 127 speed and it went about 3 blocks in 2 seconds
+	// that gives us a raw calculation for the top speed right now
+	// we assume that the raw speed to actual speed ratio is linear
+	// moving at 67 is half of the topSpeed if we assume that the ratio is linear
+	const float percentage = raw / 127; // dimensionless
+	return percentage * topSpeed; // cm/ms
+}
+
+int rawSpeedFromCMMS(float cmms) {
+	// just reverse the formula from rawSpeedToCMMS
+	// cmms is percentage * topSpeed
+	// percentage is raw / 127
+	// we want to find raw, so we're given the formula:
+	// cmms = raw / 127 * topSpeed
+	// we already know cmms and topSpeed, so solving for raw gives us:
+	// cmms / topSpeed * 127 = raw
+	return cmms / topSpeed * 127;
+}
+
 void freeze() {
 	setLeftWheelSpeed(0);
 	setRightWheelSpeed(0);
+}
+
+// distance is in centimeters
+// speed here is in centimeters per millisecond, unlike in setWheelSpeed
+void go(int distance, float speed = topSpeed) {
+	const int rawSpeed = rawSpeedFromCMMS(speed);
+	setWheelSpeed(rawSpeed);
+	wait1Msec(distance / speed);
+	freeze();
 }
 
 // finds the distance by taking the average of a bunch of different measurements
