@@ -16,5 +16,7 @@
 task main() {
 	startTask(autonomous);
 
-	while(true);
+	// keep the main task running so that the other tasks can do their thing
+	while(true)
+		wait1Msec(10000); // make the main task lie dormant to not use the CPU
 }
