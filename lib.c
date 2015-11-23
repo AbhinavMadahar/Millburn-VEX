@@ -18,6 +18,10 @@ bool isAlmost(int value, int constant, const float minimumAccuracy = 95.0) {
 	}
 }
 
+void pause(int duration) {
+	wait1Msec(abs(duration));
+}
+
 // finds the distance by taking the average of a bunch of different measurements
 int distance(tSensors sensor = senseDistanceBack) {
 	const int totalChecks = 5;
@@ -141,14 +145,21 @@ task avoidCollision() {
 	}
 }
 
+// this is the function that should be used to make linear movement
+// it will manage basically everything about movement
 // distance is in centimeters
 // speed here is in centimeters per millisecond, unlike in setWheelSpeed
-// it also stops the bot if it hits one of the
+// if the distance is negative it will go backwards
+// speed is a scalar in physics, so it cannot be negative
+// plugging in a negative speed value will be undone and saved as the abs
 void go(int distance, float speed = topSpeed) {
-	const int rawSpeed = rawSpeedFromCMMS(speed);
-	startTask(avoidCollision);
+	speed = abs(speed);
+	const int rawSpeed = sgn(distance) * rawSpeedFromCMMS(speed);
+	const int momentumDuration = 1.75 * rawSpeed; // time to wait for the momentum to die
+
 	setWheelSpeed(rawSpeed);
-	wait1Msec(distance / speed);
+	pause(distance / speed);
 	freeze();
-	stopTask(avoidCollision);
+
+	pause(momentumDuration);
 }

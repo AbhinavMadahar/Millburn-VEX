@@ -100,7 +100,9 @@ task autonomous() {
 task testAutonomous() {
 	// as the tests pass, remove them and uncomment the next one
 
-	go(blockLength);
+	setWheelSpeed(50);
+	startTask(avoidCollision);
+
 	// while (true) int x = gyroIsClockwise();
 	// while (true) int x = getGyroDegrees();
 	// spin(30);
