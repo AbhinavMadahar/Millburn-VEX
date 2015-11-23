@@ -88,5 +88,24 @@ void faceGoal(int spinDirection = 1) {
 
 // this task does not manage time because the main task will do it
 task autonomous() {
+	// determine if its on the block facing the other color goal or the other team
+	faceLeft();
 	go(blockLength);
+	bool wasFacingOtherGoal = distance() > blockLength * 1.5;
+
+	go(blockLength);
+	faceGoal();
+}
+
+task testAutonomous() {
+	// as the tests pass, remove them and uncomment the next one
+
+	go(blockLength);
+	// while (true) int x = gyroIsClockwise();
+	// while (true) int x = getGyroDegrees();
+	// spin(30);
+	// spin(-30);
+	// while (true) int x = distance();
+	// faceGoal();
+	// startTask(autonomous);
 }

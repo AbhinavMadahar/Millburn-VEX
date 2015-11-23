@@ -17,6 +17,25 @@ bool isAlmost(int value, int constant, const float minimumAccuracy = 95.0) {
 	}
 }
 
+// finds the distance by taking the average of a bunch of different measurements
+int distance(tSensors sensor = senseDistanceBack) {
+	const int totalChecks = 5;
+	int total = 0;
+	for (int i; i < totalChecks; i++)
+		total += SensorValue[sensor];
+	return total / totalChecks;
+}
+
+int isPressed(tSensors sensor = senseTouchFront) {
+	const int totalChecks = 5;
+	for (int i; i < totalChecks; i++) {
+		if (SensorValue[sensor] == 1) {
+			return true;
+		}
+	}
+	return false;
+}
+
 void setShooterSpeed(int speed) {
 	motor[launchTopLeft] = speed;
 	motor[launchTopRight] = speed;
@@ -74,25 +93,61 @@ int rawSpeedFromCMMS(float cmms) {
 	return cmms / topSpeed * 127;
 }
 
+// based on rawSpeedToCMMS
+// converts the raw speed used for spin() into degrees per millisecond
+float rawSpeedToDMS(int raw) {
+	return raw * ratio; // TODO: find the linear ratio
+}
+
+// based on rawSpeedFromCMMS
+// converts from degrees per millisecond to raw speed used for spin()
+int rawSpeedFromDMS(float raw) {
+	return raw / ratio;
+}
+
 void freeze() {
 	setLeftWheelSpeed(0);
 	setRightWheelSpeed(0);
 }
 
-// distance is in centimeters
-// speed here is in centimeters per millisecond, unlike in setWheelSpeed
-void go(int distance, float speed = topSpeed) {
-	const int rawSpeed = rawSpeedFromCMMS(speed);
-	setWheelSpeed(rawSpeed);
-	wait1Msec(distance / speed);
+// turns right in duration milliseconds
+void faceRight(int duration = 1000) {
+	const int distance = 90; // degrees
+	const int speed = rawSpeedFromDMS(distance / duration);
+	spin(speed);
+	wait1Msec(duration);
 	freeze();
 }
 
-// finds the distance by taking the average of a bunch of different measurements
-int distance(tSensors sensor = senseDistanceBack) {
-	const int totalChecks = 5;
-	int total = 0;
-	for (int i; i < totalChecks; i++)
-		total += SensorValue[sensor];
-	return total / totalChecks;
+// turns right in duration milliseconds
+void faceRight(int duration = 1000) {
+	const int distance = 90; // degrees
+	const int speed = rawSpeedFromDMS(distance / duration);
+	spin(-speed);
+	wait1Msec(duration);
+	freeze();
+}
+
+// monitors the front touch button to stop the bot when it hits something
+task avoidCollision() {
+	const int checksPerSecond = 10;
+	while (true) {
+		if (isPressed()) {
+			freeze();
+			break;
+		}
+		wait1Msec(1000 / frequency);
+	}
+}
+
+// distance is in centimeters
+// speed here is in centimeters per millisecond, unlike in setWheelSpeed
+// it also stops the bot if it hits one of the
+void go(int distance, float speed = topSpeed) {
+	const int rawSpeed = rawSpeedFromCMMS(speed);
+	startTask(avoidCollision);
+	setWheelSpeed(rawSpeed);
+	wait1Msec(distance / speed);
+	freeze();
+	stopTask(avoidCollision);
 }
