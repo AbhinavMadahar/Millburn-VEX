@@ -4,6 +4,7 @@
 const int defaultSpeedSpeed = 80;
 const int blockLength = 61; // centimeters
 const float topSpeed = (3 * blockLength) / 2000.0; // robot top speed in cm/ms
+const float rawSpeedToDMSratio = 40; // literally just a guess for now
 
 bool isAlmost(int value, int constant, const float minimumAccuracy = 95.0) {
 	if (constant == 0 && value != 0) {
@@ -96,13 +97,13 @@ int rawSpeedFromCMMS(float cmms) {
 // based on rawSpeedToCMMS
 // converts the raw speed used for spin() into degrees per millisecond
 float rawSpeedToDMS(int raw) {
-	return raw * ratio; // TODO: find the linear ratio
+	return raw * rawSpeedToDMSratio; // TODO: find the linear ratio
 }
 
 // based on rawSpeedFromCMMS
 // converts from degrees per millisecond to raw speed used for spin()
 int rawSpeedFromDMS(float raw) {
-	return raw / ratio;
+	return raw / rawSpeedToDMSratio; // TODO: find the linear ratio
 }
 
 void freeze() {
@@ -119,8 +120,8 @@ void faceRight(int duration = 1000) {
 	freeze();
 }
 
-// turns right in duration milliseconds
-void faceRight(int duration = 1000) {
+// turns left in duration milliseconds
+void faceLeft(int duration = 1000) {
 	const int distance = 90; // degrees
 	const int speed = rawSpeedFromDMS(distance / duration);
 	spin(-speed);
@@ -136,7 +137,7 @@ task avoidCollision() {
 			freeze();
 			break;
 		}
-		wait1Msec(1000 / frequency);
+		wait1Msec(1000.0 / checksPerSecond);
 	}
 }
 
