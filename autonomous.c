@@ -124,13 +124,6 @@ task testAutonomous() {
 	// 	setShooterSpeed(isPressed() ? 127 : 0);
 	// }
 
-	// turn(90);
-  // turn(-90);
-  // turn(180);
-  // turn(-90);
-  // turn(90);
-  // turn(-180);
-
   // while (true) bool isFull = launcherHasBalls();
 
   // at this point, it seems like lib/ has been tested correctly
