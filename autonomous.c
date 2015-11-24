@@ -97,35 +97,35 @@ task testAutonomous() {
 	// 	pause(10);
 	// }
 
-  // now, find the relationship between the shooter speed and distance shot
-  // use this relationship to implement shooterSpeedToReach(int)
+	// now, find the relationship between the shooter speed and distance shot
+	// use this relationship to implement shooterSpeedToReach(int)
 
 	// while (true) int d = distance();
 
-  // startConveyorBelt();
+	// startConveyorBelt();
 
 	// startTask(automateShooterSpeed);
 
-  // while (true) int g = gyro();
+	// while (true) int g = gyro();
 
-  // this tests if the robot can move linearly while setting up the gyro
-  // setWheelSpeed(30);
-  // setUpGyro();
-  // freeze();
-  // while (true) int g = gyro();
+	// this tests if the robot can move linearly while setting up the gyro
+	// setWheelSpeed(30);
+	// setUpGyro();
+	// freeze();
+	// while (true) int g = gyro();
 
 	// this tests if the robot can spin while setting up the gyro
-  // spin();
-  // setUpGyro();
-  // freeze();
-  // while (true) int g = gyro();
+	// spin();
+	// setUpGyro();
+	// freeze();
+	// while (true) int g = gyro();
 
 	// while (true) {
 	// 	setShooterSpeed(isPressed() ? 127 : 0);
 	// }
 
-  // while (true) bool isFull = launcherHasBalls();
+	// while (true) bool isFull = launcherHasBalls();
 
-  // at this point, it seems like lib/ has been tested correctly
-  // you are now ready to test autonomous()
+	// at this point, it seems like lib/ has been tested correctly
+	// you are now ready to test autonomous()
 }
