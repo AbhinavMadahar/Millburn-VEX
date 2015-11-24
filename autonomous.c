@@ -6,7 +6,6 @@
 #include "../lib/motion/angular.c"
 #include "../lib/motion/linear.c"
 #include "../lib/sensation/distance.c"
-#include "../lib/sensation/gyro.c"
 #include "../lib/sensation/touch.c"
 
 // this task does not manage time because the main task will do it
@@ -74,7 +73,6 @@ task testAutonomous() {
 	// if the simplest functions work correctly, the more complex ones will work
 	// thus, we test simplest first and work our way up
 
-	// turn(90);
 	// turn(-45);
 	// turn(-90);
 	// turn(45);
@@ -97,20 +95,6 @@ task testAutonomous() {
 	// startConveyorBelt();
 
 	// startTask(automateShooterSpeed);
-
-	// while (true) int g = gyro();
-
-	// this tests if the robot can move linearly while setting up the gyro
-	// setWheelSpeed(30);
-	// setUpGyro();
-	// freeze();
-	// while (true) int g = gyro();
-
-	// this tests if the robot can spin while setting up the gyro
-	// spin();
-	// setUpGyro();
-	// freeze();
-	// while (true) int g = gyro();
 
 	// while (true) {
 	// 	setShooterSpeed(isPressed() ? 127 : 0);
