@@ -49,20 +49,20 @@ void go(int distance, float speed = topSpeed) {
 	speed = abs(speed);
 	const int rawSpeed = sgn(distance) * rawSpeedFromCMMS(speed);
 	const int momentumDuration = 1.75 * rawSpeed; // time to wait for the momentum to die
-  const int moveDuration = distance / speed;
+	const int moveDuration = distance / speed;
 
-  // this function also prevents the robot from ramming itself into something
-  // it does this by periodically checking to see if the touch sensor was pressed
-  const int collisionChecksPerSecond = 5;
+	// this function also prevents the robot from ramming itself into something
+	// it does this by periodically checking to see if the touch sensor was pressed
+	const int collisionChecksPerSecond = 5;
 
 	setWheelSpeed(rawSpeed);
-  for (int i = 0; i < collisionChecksPerSecond * moveDuration / 1000; i++) {
-    pause(1000 / collisionChecksPerSecond);
-    if (isPressed()) {
-      break;
-    }
-  }
+	for (int i = 0; i < collisionChecksPerSecond * moveDuration / 1000; i++) {
+		pause(1000 / collisionChecksPerSecond);
+		if (isPressed()) {
+			break;
+		}
+	}
 
-  freeze();
+	freeze();
 	pause(momentumDuration);
 }

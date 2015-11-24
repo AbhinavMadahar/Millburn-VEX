@@ -6,6 +6,6 @@ void pause(int duration) {
 }
 
 void pause() {
-  while (true)
-    pause(10000);
+	while (true)
+		pause(10000);
 }

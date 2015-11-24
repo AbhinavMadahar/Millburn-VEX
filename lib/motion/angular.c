@@ -20,12 +20,12 @@ void spin(int speed = defaultSpinSpeed) {
 void turn(int angle, int speed = defaultSpinSpeed) {
 	freeze();
 
-  const int initialAngle = gyro();
-  while (abs(gyro() - initialAngle) < angle) {
-    spin(speed);
-  }
+	const int initialAngle = gyro();
+	while (abs(gyro() - initialAngle) < angle) {
+		spin(speed);
+	}
 
-  freeze();
+	freeze();
 }
 
 void right(int speed = defaultSpinSpeed) {
@@ -33,5 +33,5 @@ void right(int speed = defaultSpinSpeed) {
 }
 
 void left(int speed) {
-  right(-90, -speed);
+	right(-90, -speed);
 }
