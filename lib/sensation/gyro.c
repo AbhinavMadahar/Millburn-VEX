@@ -30,41 +30,9 @@ void setUpGyro() {
 	alreadySetUp = true;
 }
 
-// the gyro sensor can register postive and negative values
-// spinning it one way will cause it to detect negative and the other positive
-// the problem is that the sensor might be accidentally put upside down
-// to make sure that we know what direction the sensor is using, use this
-// returns true if the sensor goes up when the robot moves clockwise
-// you can call this function multiple times and it will not remeasure
-// it remembers what it detected last time and will return the value from before
-bool gyroIsClockwise() {
-	setUpGyro();
-	static bool isClockwise, alreadyRun;
-
-	if (alreadyRun)
-		return isClockwise;
-	const int spinSpeed = 40;
-	const int spinDuration = 200;
-
-	// see if the measurement goes up when the robot goes clockwise
-	const int originalMeasurement = SensorValue[gyroPort];
-	spinClockwise(spinSpeed);
-	wait1Msec(spinDuration);
-	isClockwise = SensorValue[gyroPort] > originalMeasurement;
-
-	// go back to the original position and stop
-	spinCounterClockwise(spinSpeed);
-	wait1Msec(spinDuration);
-	freeze();
-
-	alreadyRun = true;
-
-	return isClockwise;
-}
-
 // use this function instead of using the SensorValue directly
 // it will take the raw measurement from the SensorValue and normalise it
 float gyro() {
 	// we need to return the measurement in degrees turned clockwise
-	return (gyroIsClockwise() ? 1 : -1) * SensorValue[gyroPort] / 10.0;
+	return SensorValue[gyroPort] / 10.0;
 }

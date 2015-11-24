@@ -1,8 +1,7 @@
 // this file is only supposed to be used in the main.c file
 // that is why it assumes that it has the sensors all configured via pragmas
 
-#include <stdlib.h> // allows us to use malloc() and related functions
-#include "../lib/laucher/conveyor.c"
+#include "../lib/launcher/conveyor.c"
 #include "../lib/launcher/shooter.c"
 #include "../lib/motion/angular.c"
 #include "../lib/motion/linear.c"
@@ -65,10 +64,8 @@ task autonomous() {
 	// now, go back to the middle and launch the balls to the correct goal
 	go(-3 * blockLength);
 	turn(startedOnA1 ? -45 : 45);
-	automateShooterSpeed();
-	while (launcherHasBalls()) { // wait until the launcher is done to move away
-		pause(1000); // it takes a while to dump the balls, so check infrequently
-	}
+	startTask(automateShooterSpeed);
+	pause();
 }
 
 task testAutonomous() {
@@ -76,11 +73,6 @@ task testAutonomous() {
 	// the code is organised so that functions are composed of simpler functions
 	// if the simplest functions work correctly, the more complex ones will work
 	// thus, we test simplest first and work our way up
-
-	go(blockLength);
-	go(-2 * blockLength);
-	go(3 * blockLength);
-	go(-2 * blockLength);
 
 	// turn(90);
 	// turn(-45);
@@ -123,8 +115,6 @@ task testAutonomous() {
 	// while (true) {
 	// 	setShooterSpeed(isPressed() ? 127 : 0);
 	// }
-
-	// while (true) bool isFull = launcherHasBalls();
 
 	// at this point, it seems like lib/ has been tested correctly
 	// you are now ready to test autonomous()

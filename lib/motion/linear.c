@@ -1,4 +1,5 @@
 #include "wheels.c"
+#include "../sensation/touch.c"
 
 const int blockLength = 61; // centimeters
 const int blockDiagonalLength = sqrt(2) * blockLength; // pythagorean theorem
@@ -51,18 +52,10 @@ void go(int distance, float speed = topSpeed) {
 	const int momentumDuration = 1.75 * rawSpeed; // time to wait for the momentum to die
 	const int moveDuration = distance / speed;
 
-	// this function also prevents the robot from ramming itself into something
-	// it does this by periodically checking to see if the touch sensor was pressed
-	const int collisionChecksPerSecond = 5;
-
+	// make the needed movement and stop
 	setWheelSpeed(rawSpeed);
-	for (int i = 0; i < collisionChecksPerSecond * moveDuration / 1000; i++) {
-		pause(1000 / collisionChecksPerSecond);
-		if (isPressed()) {
-			break;
-		}
-	}
-
+	pause(moveDuration);
 	freeze();
+
 	pause(momentumDuration);
 }

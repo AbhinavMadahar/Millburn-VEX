@@ -10,7 +10,10 @@ void setShooterSpeed(int speed) {
 // this is used for the autocalibrateShooterSpeed
 // it allows me to figure out how fast to set the shooter
 // TODO: implement shooterSpeedToReach
-int shooterSpeedToReach(int);
+int shooterSpeedToReach(int speed) {
+	const int speedToReachRatio = 30; // just a guess for now
+	return speedToReachRatio * speed;
+}
 
 void autocalibrateShooterSpeed() {
 	const int distanceToGoal = distance(senseDistanceFront);

@@ -32,6 +32,6 @@ void right(int speed = defaultSpinSpeed) {
 	turn(90, speed);
 }
 
-void left(int speed) {
-	right(-90, -speed);
+void left(int speed = defaultSpinSpeed) {
+	right(-speed);
 }

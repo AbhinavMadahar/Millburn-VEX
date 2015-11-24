@@ -1,4 +1,8 @@
-void setConveyorSpeed(int); // just a forward-declaration for now
+#include "../lib/sensation/distance.c"
+
+void setConveyorSpeed(int speed) { // just a forward-declaration for now
+	motor[conveyor] = speed;
+}
 
 void startConveyorBelt() {
 	setConveyorSpeed(127);
@@ -6,11 +10,4 @@ void startConveyorBelt() {
 
 void stopConveyorBelt() {
 	setConveyorSpeed(0);
-}
-
-bool launcherHasBalls() {
-	const bool ballsOnBottom = distance(senseDistanceBottomOpening) < 20;
-	const bool ballsOnTop = distance(senseDistanceTopOpening) < 20;
-
-	return ballsOnTop || ballsOnBottom;
 }
