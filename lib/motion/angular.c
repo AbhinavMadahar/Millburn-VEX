@@ -31,7 +31,7 @@ float rawSpeedToDMS(int raw) {
 	const float ratio = 17 / 20.0;
 
 	// that said, it still has to be a minimum value to turn the robot
-	const threshold = 25; // around where the robot didn't turn at all
+	const int threshold = 25; // around where the robot didn't turn at all
 
 	return raw > threshold ? raw * ratio : 0;
 }
@@ -43,10 +43,10 @@ int rawSpeedFromDMS(float dms) {
 	return dms * ratio;
 }
 
-void turn(int angle, int duration) {
+void turn(int angle, int duration = 500) {
 	freeze();
 
-	const float speed = rawSpeedToDMS()
+	const float speed = rawSpeedFromDMS(angle / (float) duration);
 
 	spin(speed);
 	pause(duration);
