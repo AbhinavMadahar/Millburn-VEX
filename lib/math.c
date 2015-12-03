@@ -9,3 +9,7 @@ bool isAlmost(int value, int constant, const float minimumAccuracy = 95.0) {
 		return abs((value - constant) / constant) <= (1 - minimumAccuracy / 100);
 	}
 }
+
+int approximateTo(int original, int base) {
+	return original - original % base;
+}

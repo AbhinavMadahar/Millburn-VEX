@@ -1,6 +1,4 @@
-#pragma config(Sensor, dgtl1,  senseDistanceBack, sensorSONAR_cm)
-#pragma config(Sensor, dgtl3,  senseTouchFront, sensorTouch)
-#pragma config(Sensor, dgtl4,  senseDistanceFront, sensorSONAR_cm)
+#pragma config(Sensor, dgtl1,  senseDistanceFront, sensorSONAR_cm)
 #pragma config(Motor,  port2,           launchBottomLeft, tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port3,           launchTopLeft, tmotorVex393_MC29, openLoop, reversed)
 #pragma config(Motor,  port4,           launchTopRight, tmotorVex393_MC29, openLoop)
@@ -16,5 +14,5 @@
 #include "autonomous.c"
 
 task main() {
-	startTask(testAutonomous);
+	testAutonomous();
 }

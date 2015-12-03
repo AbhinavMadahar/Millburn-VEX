@@ -67,8 +67,6 @@ task autonomous() {
 	pause();
 }
 
-task testAutonomous() {
-	// place testing code in this task
-	// that way, we can use all the functions that are available to autonomous()
-	// however, we don't want to override autonomous() since it's important
+void testAutonomous() {
+
 }
