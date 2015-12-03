@@ -44,7 +44,7 @@ float rawSpeedToDMS(int raw) {
 		case 30:
 			return 0.01333;
 		case 40:
-			return 0.046667;
+			return 0.048;
 		case 50:
 			return 0.075;
 		case 60:
@@ -66,13 +66,14 @@ float rawSpeedToDMS(int raw) {
 void turn(int angle) {
 	freeze();
 
-	const float speed = 50 * sgn(angle);
+	const float speed = 40 * sgn(angle);
 	const float duration = angle / rawSpeedToDMS(speed);
 
 	spin(speed);
 	pause(duration);
 
 	freeze();
+	pause(200); // let the momentum die off
 }
 
 void right() {
