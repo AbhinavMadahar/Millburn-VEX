@@ -1,5 +1,4 @@
 #include "wheels.c"
-#include "../sensation/touch.c"
 
 const int blockLength = 61; // centimeters
 const int blockDiagonalLength = sqrt(2) * blockLength; // pythagorean theorem
@@ -25,18 +24,6 @@ int rawSpeedFromCMMS(float cmms) {
 	// we already know cmms and topSpeed, so solving for raw gives us:
 	// cmms / topSpeed * 127 = raw
 	return cmms / topSpeed * 127;
-}
-
-// monitors the front touch button to stop the bot when it hits something
-task avoidCollision() {
-	const int checksPerSecond = 10;
-	while (true) {
-		if (isPressed()) {
-			freeze();
-			break;
-		}
-		wait1Msec(1000.0 / checksPerSecond);
-	}
 }
 
 // this is the function that should be used to make linear movement

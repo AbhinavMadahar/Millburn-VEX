@@ -6,7 +6,6 @@
 #include "../lib/motion/angular.c"
 #include "../lib/motion/linear.c"
 #include "../lib/sensation/distance.c"
-#include "../lib/sensation/touch.c"
 
 // this task does not manage time because the main task will do it
 task autonomous() {
