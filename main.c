@@ -17,6 +17,4 @@
 
 task main() {
 	startTask(testAutonomous);
-
-	pause();
 }

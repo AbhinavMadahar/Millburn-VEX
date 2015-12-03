@@ -3,7 +3,7 @@
 // the gyro sensor cannot be set up via a pragma
 // thus, I have to define the port it is connected to
 // then, the setUpGyro() function will set it up
-#define gyroPort in8
+#define gyroPort in3
 
 // TODO: find out if this function can be run while the robot is moving
 void setUpGyro() {
@@ -19,7 +19,7 @@ void setUpGyro() {
 	if (alreadySetUp)
 		return;
 
-	const int waitDurations[2] = {1500, 2500}; // TODO: find the best values
+	const int waitDurations[2] = {2000, 4000}; // TODO: find the best values
 
 	// you have to give the sensor some time to let it set everything up
 	SensorType[gyroPort] = sensorNone;
@@ -34,5 +34,6 @@ void setUpGyro() {
 // it will take the raw measurement from the SensorValue and normalise it
 float gyro() {
 	// we need to return the measurement in degrees turned clockwise
+	setUpGyro();
 	return SensorValue[gyroPort] / 10.0;
 }
