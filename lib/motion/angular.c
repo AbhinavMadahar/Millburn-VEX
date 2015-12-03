@@ -1,18 +1,22 @@
 #include "wheels.c"
 #include "../time.c"
+#include "../math.c"
 #include "../sensation/gyro.c"
 
 const int defaultSpinSpeed = 40;
 
+// speed is in raw speed
 void spinClockwise(int speed = defaultSpinSpeed) {
 	setRightWheelSpeed(-speed);
 	setLeftWheelSpeed(speed);
 }
 
+// speed is in raw speed
 void spinCounterClockwise(int speed = defaultSpinSpeed) {
 	spinClockwise(-speed);
 }
 
+// speed is in raw speed
 void spin(int speed = defaultSpinSpeed) {
 	spinClockwise(speed);
 }
@@ -21,32 +25,49 @@ void spin(int speed = defaultSpinSpeed) {
 // this is not helpful because we don't know how fast 127 or 33 are
 // this function converts the raw speed like 127 to the speed in deg/msec
 float rawSpeedToDMS(int raw) {
-	// I set raw speed was to 80 and put it into spin for 5 seconds
-	// it ended up turning 400 degrees
-	// thus, a raw speed of 80 moves it 400 degrees in 3 seconds or 133 deg/msec
-	// 100 => 450 degrees in 3 seconds to get 150 deg/msec
-	// assume that it's a linear ratio
-	// when the raw speed increased by 20, the DMS increased by 17 deg/msec
-	// thus, the ratio is 17/20
-	const float ratio = 17 / 20.0;
+	// I made a simple program that runs the spin() function on various speeds
+	// the raw speed to degrees turned per millisecond conversion is:
+	// raw => proper
+	// 10 => 0
+	// 20 => 0
+	// 30 => 0.0133333333
+	// 40 => 0.0466666667
+	// 50 => 0.075
+	// 60 => 0.0933333333
+	// 70 => 0.115
+	// 80 => 0.135
+	// 90 => 0.15
+	// 100 => 0.15
+	// for now, we'll just make a simple approximation based on these values
 
-	// that said, it still has to be a minimum value to turn the robot
-	const int threshold = 25; // around where the robot didn't turn at all
-
-	return raw > threshold ? raw * ratio : 0;
+	switch (approximateTo(abs(raw), 10)) {
+		case 30:
+			return 0.01333;
+		case 40:
+			return 0.046667;
+		case 50:
+			return 0.075;
+		case 60:
+			return 0.0933333;
+		case 70:
+			return 0.115;
+		case 80:
+			return 0.135;
+		case 90:
+		case 100:
+			return 0.15;
+		default:
+			return 0;
+	}
 }
 
-// the inverse of the rawSpeedToDMS
-// read the rawSpeedToDMS comments before reading this function
-int rawSpeedFromDMS(float dms) {
-	const float ratio = 20.0 / 17;
-	return dms * ratio;
-}
-
-void turn(int angle, int duration = 500) {
+// angle is in degrees clockwise
+// duration is in milliseconds
+void turn(int angle) {
 	freeze();
 
-	const float speed = rawSpeedFromDMS(angle / (float) duration);
+	const float speed = 50 * sgn(angle);
+	const float duration = angle / rawSpeedToDMS(speed);
 
 	spin(speed);
 	pause(duration);
