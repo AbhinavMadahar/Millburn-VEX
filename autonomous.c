@@ -68,38 +68,7 @@ task autonomous() {
 }
 
 task testAutonomous() {
-	// as the tests pass, remove them and uncomment the next one
-	// the code is organised so that functions are composed of simpler functions
-	// if the simplest functions work correctly, the more complex ones will work
-	// thus, we test simplest first and work our way up
-
-	// turn(-45);
-	// turn(-90);
-	// turn(45);
-
-	// slowly speeds up the shooter and then slows it down
-	// for (int speed = 0; speed < 127; speed++) {
-	// 	setShooterSpeed(speed);
-	// 	pause(10);
-	// }
-	// for (int speed = 127; speed >= 0; speed--) {
-	// 	setShooterSpeed(speed);
-	// 	pause(10);
-	// }
-
-	// now, find the relationship between the shooter speed and distance shot
-	// use this relationship to implement shooterSpeedToReach(int)
-
-	// while (true) int d = distance();
-
-	// startConveyorBelt();
-
-	// startTask(automateShooterSpeed);
-
-	// while (true) {
-	// 	setShooterSpeed(isPressed() ? 127 : 0);
-	// }
-
-	// at this point, it seems like lib/ has been tested correctly
-	// you are now ready to test autonomous()
+	// place testing code in this task
+	// that way, we can use all the functions that are available to autonomous()
+	// however, we don't want to override autonomous() since it's important
 }
