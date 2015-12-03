@@ -14,5 +14,5 @@
 #include "autonomous.c"
 
 task main() {
-	startTask(testAutonomous);
+	testAutonomous();
 }
