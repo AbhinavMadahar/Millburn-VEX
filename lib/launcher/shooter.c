@@ -1,10 +1,25 @@
 #include "../time.c"
 
+int shooterSpeed;
+
+// when the ball hits the shooter, the motors stop
+// this task keeps the motor on
+task maintainShooterSpeed() {
+	while (true) {
+		motor[launchTopLeft] = shooterSpeed;
+		motor[launchTopRight] = shooterSpeed;
+		motor[launchBottomLeft] = shooterSpeed;
+		motor[launchBottomRight] = shooterSpeed;
+		pause(10);
+	}
+}
+
 void setShooterSpeed(int speed) {
-	motor[launchTopLeft] = speed;
-	motor[launchTopRight] = speed;
-	motor[launchBottomLeft] = speed;
-	motor[launchBottomRight] = speed;
+	shooterSpeed = speed;
+	if (speed == 0)
+		stopTask(maintainShooterSpeed);
+	else
+		startTask(maintainShooterSpeed);
 }
 
 // this is used for the autocalibrateShooterSpeed

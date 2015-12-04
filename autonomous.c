@@ -35,4 +35,13 @@ task autonomous() {
 		turn(45);
 	else
 		turn(-35);
+
+	// go in front of the goal
+	go(blockDiagonalLength * 4.5);
+
+	// release the balls
+	setShooterSpeed(50);
+
+	pause(3000);
+	startConveyorBelt();
 }
