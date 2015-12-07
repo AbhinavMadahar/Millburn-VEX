@@ -1,4 +1,6 @@
 #pragma config(Sensor, dgtl1,  senseDistanceFront, sensorSONAR_cm)
+#pragma config(Sensor, dgtl3,  shooterEncoder, sensorRotation)
+#pragma config(Motor,  port1,           reaper,        tmotorVex393_HBridge, openLoop)
 #pragma config(Motor,  port2,           launchBottomLeft, tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port3,           launchTopLeft, tmotorVex393_MC29, openLoop, reversed)
 #pragma config(Motor,  port4,           launchTopRight, tmotorVex393_MC29, openLoop, reversed)
@@ -18,9 +20,9 @@ task main() {
 	const int autonomousDuration = 15 * 1000;
 	const int manualDuration = (60 + 45) * 1000;
 
-	startTask(autonomous);
+	startTask(hippo);
 	pause(autonomousDuration);
-	stopTask(autonomous);
+	stopTask(hippo);
 
 	startTask(manual);
 	pause(manualDuration);

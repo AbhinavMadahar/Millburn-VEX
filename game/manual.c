@@ -25,7 +25,7 @@ task manual()
 		setShooterSpeed(launcherSpeed);
 
 		//LCD Stuff
-		int sonarVal = SensorValue(sonar);
+		int sonarVal = distance();
 		clearLCDLine(0);																						// Clear line 1 (0) of the LCD
 		clearLCDLine(1);																						// Clear line 2 (1) of the LCD
  		string s;
@@ -39,25 +39,25 @@ task manual()
 		//nonstrafing
 		if (vexRT[Btn5U] == false && vexRT[Btn6U] == false)
 		{
-			motor[wheelFR] = vexRT[Ch2];
-			motor[wheelBR] = vexRT[Ch2];
-			motor[wheelFL] = vexRT[Ch3];
-			motor[wheelBL] = vexRT[Ch3];
+			motor[wheelFrontRight] = vexRT[Ch2];
+			motor[wheelBackRight] = vexRT[Ch2];
+			motor[wheelFrontLeft] = vexRT[Ch3];
+			motor[wheelBackLeft] = vexRT[Ch3];
 		}
 		//strafing
 		else if (vexRT[Btn5U])
 		{
-			motor[wheelFR] = 127;
-			motor[wheelFL] = -127;
-			motor[wheelBL] = 127;
-			motor[wheelBR] = -127;
+			motor[wheelFrontRight] = 127;
+			motor[wheelFrontLeft] = -127;
+			motor[wheelBackLeft] = 127;
+			motor[wheelBackRight] = -127;
 		}
 		else if (vexRT[Btn6U])
 		{
-			motor[wheelFR] = -127;
-			motor[wheelFL] = 127;
-			motor[wheelBL] = -127;
-			motor[wheelBR] = 127;
+			motor[wheelFrontRight] = -127;
+			motor[wheelFrontLeft] = 127;
+			motor[wheelBackLeft] = -127;
+			motor[wheelBackRight] = 127;
 		}
 		//turning on conveyor belt
 		if (vexRT[Btn8U] && conveyor1Pressed == false)

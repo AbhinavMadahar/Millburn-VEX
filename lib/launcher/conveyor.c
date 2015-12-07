@@ -1,7 +1,7 @@
 #include "../lib/sensation/distance.c"
 
 void setConveyorSpeed(int speed) {
-	motor[conveyor] = conveyorSpeed;
+	motor[conveyor] = speed;
 }
 
 void startConveyorBelt() {

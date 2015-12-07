@@ -1,6 +1,8 @@
+const float wheelRightOverLeftRatio = 0.95 / 1;
+
 void setRightWheelSpeed(int speed) {
-	motor[wheelFrontRight] = speed;
-	motor[wheelBackRight] = speed;
+	motor[wheelFrontRight] = speed / wheelRightOverLeftRatio;
+	motor[wheelBackRight] = speed / wheelRightOverLeftRatio;
 }
 
 void setLeftWheelSpeed(int speed) {
