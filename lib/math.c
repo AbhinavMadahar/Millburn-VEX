@@ -13,3 +13,11 @@ bool isAlmost(int value, int constant, const float minimumAccuracy = 95.0) {
 int approximateTo(int original, int base) {
 	return original - original % base;
 }
+
+int greatest(int a, int b) {
+	return a > b ? a : b;
+}
+
+int least(int a, int b) {
+	return a > b ? b : a;
+}
