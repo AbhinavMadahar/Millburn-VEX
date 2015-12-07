@@ -1,50 +1,52 @@
 #include "../time.c"
+#include "../math.c"
 
-int shooterSpeed;
-
-// when the ball hits the shooter, the motors stop
-// this task keeps the motor on
-task maintainShooterSpeed() {
-	while (true) {
-		motor[launchTopLeft] = shooterSpeed;
-		motor[launchTopRight] = shooterSpeed;
-		motor[launchBottomLeft] = shooterSpeed;
-		motor[launchBottomRight] = shooterSpeed;
-		pause(10);
-	}
-}
-
-void setShooterSpeed(int speed) {
-	shooterSpeed = speed;
-	if (speed == 0)
-		stopTask(maintainShooterSpeed);
-	else
-		startTask(maintainShooterSpeed);
+void setShooterSpeed(int shooterSpeed) {
+	motor[launchTopLeft] = shooterSpeed;
+	motor[launchTopRight] = shooterSpeed;
+	motor[launchBottomLeft] = shooterSpeed;
+	motor[launchBottomRight] = shooterSpeed;
 }
 
 // this is used for the autocalibrateShooterSpeed
-// it allows me to figure out how fast to set the shooter
+// it allows the bot to calculate how fast to set the shooter to get a low goal
 // TODO: implement shooterSpeedToReach
-int shooterSpeedToReach(int speed) {
+int shooterSpeedToReach(int distance) {
 	const int speedToReachRatio = 30; // just a guess for now
-	return speedToReachRatio * speed;
+	return speedToReachRatio * distance;
 }
 
 void autocalibrateShooterSpeed() {
-	const int distanceToGoal = distance(senseDistanceFront);
+	const int distanceToGoal = distance();
 	setShooterSpeed(shooterSpeedToReach(distanceToGoal));
 }
 
-// this task makes the robot continuously correct the shooter speed
-// if it is good enough, we can add it to the manual task as an option
-// that way, we can have a backup in case a driver needs some help
-task automateShooterSpeed() {
-	// if it is set too high the motors can't change fast enough
-	const int correctionsPerSecond = 5;
+// it takes a while for the shooter to get to speed
+// this function takes the speed it was set to and returns how fast it should be
+// returns in terms of encoder counts per second
+int correctShooterSpeed(int speed) {
+	// TODO: find a way to model the speed given and the correct shooter speed
+	return speed;
+}
 
-	while (true) {
-		autocalibrateShooterSpeed();
-		pause(1000 / correctionsPerSecond);
-	}
+// returns in terms of encoder counts per second
+int currentShooterSpeed() {
+	// we can use the motor encoder to determine the shooter's current speed
+	const int duration = 50;
 
+	nMotorEncoder[shooterEncoder] = 0; // clear the measurement
+	pause(duration);
+	const int distanceSpun = nMotorEncoder[shooterEncoder];
+	const int speed = distanceSpun / duration;
+	return speed;
+}
+
+// the shooter takes some time to get to the correct speed
+// for example, if you set the speed to 127 it takes a few seconds to get there
+// this function determines if the robot is up to speed yet
+bool shooterIsReady() {
+	const int setSpeed = motor[launchTopLeft]; // the speed it should be
+	const int correctSpeed = correctShooterSpeed(setSpeed);
+	const int currentSpeed = currentShooterSpeed();
+	return isAlmost(correctSpeed, currentSpeed);
 }

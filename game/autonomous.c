@@ -1,14 +1,41 @@
 // this file is only supposed to be used in the main.c file
 // that is why it assumes that it has the sensors all configured via pragmas
 
+#include "../lib/math.c"
 #include "../lib/launcher/conveyor.c"
 #include "../lib/launcher/shooter.c"
 #include "../lib/motion/angular.c"
 #include "../lib/motion/linear.c"
 #include "../lib/sensation/distance.c"
 
-// this task does not manage time because the main task will do it
+// after shooting, the shooter needs to get back up to speed
+// we want to avoid putting a ball in so that the shooter can get to speed
+// this task will manage the conveyor and avoid shooting balls until it's ready
+task automateConveyor() {
+	const int conveyorSpeed = 100;
+	const int checkFrequency = 10; // Hertz
+	while (true) {
+		setConveyorSpeed(shooterIsReady() ? conveyorSpeed : 0);
+		pause(1000 / checkFrequency);
+	}
+}
+
+// this task continuously corrects the shooter speed to get in a low goal
+task automateShooterSpeed() {
+	// if it is set too high the motors can't change fast enough
+	const int correctionsPerSecond = 5;
+
+	while (true) {
+		autocalibrateShooterSpeed();
+		pause(1000 / correctionsPerSecond);
+	}
+}
+
 task autonomous() {
+	// it takes a while to start up the shooter, so have it start first thing
+	// while the shooter is starting, we can move into shooting position
+	setShooterSpeed(90);
+
 	// the robot is in an 6-by-6 grid
 	// thus, we can imagine it as a smaller chessboard, and use chess vocab
 	// the axis along which lie the goals has its columns demarked A to F
@@ -31,17 +58,12 @@ task autonomous() {
 
 	// now, from the starting position, face the goal
 	go(blockLength);
-	if (willTurnRight)
-		turn(45);
-	else
-		turn(-35);
+	turn(willTurnRight ? 45 : -35);
+
+	// start launching the balls on the way to the goal
+	startTask(automateShooterSpeed);
+	startTask(automateConveyor);
 
 	// go in front of the goal
-	go(blockDiagonalLength * 4.5);
-
-	// release the balls
-	setShooterSpeed(50);
-
-	pause(3000);
-	startConveyorBelt();
+	go(blockDiagonalLength * 3);
 }

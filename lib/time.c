@@ -5,7 +5,7 @@ void pause(int duration) {
 	wait1Msec(abs(duration));
 }
 
-void pause() {
+void sleep() {
 	while (true)
 		pause(10000);
 }
