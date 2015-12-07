@@ -1,14 +1,14 @@
 // this file is only supposed to be used in the main.c file
 // that is why it assumes that it has the sensors all configured via pragmas
 
-#include "../lib/math.c"
-#include "../lib/launcher/conveyor.c"
-#include "../lib/launcher/shooter.c"
-#include "../lib/motion/angular.c"
-#include "../lib/motion/linear.c"
-#include "../lib/sensation/distance.c"
+#include "../../lib/math.c"
+#include "../../lib/launcher/conveyor.c"
+#include "../../lib/launcher/shooter.c"
+#include "../../lib/motion/angular.c"
+#include "../../lib/motion/linear.c"
+#include "../../lib/sensation/distance.c"
 
-/*// after shooting, the shooter needs to get back up to speed
+// after shooting, the shooter needs to get back up to speed
 // we want to avoid putting a ball in so that the shooter can get to speed
 // this task will manage the conveyor and avoid shooting balls until it's ready
 task automateConveyor() {
@@ -30,7 +30,7 @@ task automateShooterSpeed() {
 		pause(1000 / correctionsPerSecond);
 	}
 }
-*/
+
 task gunman() {
 	// it takes a while to start up the shooter, so have it start first thing
 	// while the shooter is starting, we can move into shooting position
@@ -66,23 +66,4 @@ task gunman() {
 
 	// go in front of the goal
 	go(blockDiagonalLength * 3);
-}
-
-task hippo() {
-	motor[reaper] = 127;
-	startConveyorBelt();
-
-	turn(45);
-	const bool willTurnRight = distance() > blockDiagonalLength * 2;
-	turn(-45); // go back to the starting position
-
-	// now, from the starting position, face the goal
-	go(blockLength);
-	turn(willTurnRight ? 45 : -35);
-
-	go(blockDiagonalLength * 1.5);
-	go(-blockDiagonalLength * 1.35);
-	stopConveyorBelt();
-
-	go(-blockDiagonalLength * 0.75);
 }

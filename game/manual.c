@@ -1,4 +1,5 @@
 #include "../lib/motion/wheels.c"
+#include "../lib/launcher/shooter.c"
 
 task manual()
 {
